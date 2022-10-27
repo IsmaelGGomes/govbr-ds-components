@@ -15,7 +15,7 @@ export const Button: FC<Props> = (props) => {
     const { variant, className, type, children, size, dark, block, loading, ...restOfProps } = props;
 
     const classnames = [
-        'br-button mt-sm-0 ml-sm-3',
+        'br-button mr-3 ',
         variant,
         className,
         size !== 'medium' ? size : undefined,
