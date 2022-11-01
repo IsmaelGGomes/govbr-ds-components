@@ -1,23 +1,26 @@
 /* eslint-disable react/button-has-type */
-import type { FC, HTMLProps } from 'react';
+import { Children, FC, HTMLProps } from 'react';
 import type { ThemeColorName } from '../../types/colors';
 import { cn } from '../../utils/classname';
 
 type Props = HTMLProps<HTMLButtonElement> & {
     disabled: boolean;
+    fixed: string;
 };
 
 export const Card: React.FC<Props> = (props) => {
-    const { className, ...restOfProps } = props;
+    const { className,fixed,children, ...restOfProps } = props;
 
     const classnames = [
         'br-card',
+        fixed == 'h-fixed' ? fixed: undefined,
         className,
+        children,
     ];
-
+    
     const header = [
         <div className="card-header">
-            <div className="d-flex">
+            <div className="d-flex ">
                 {/* <span className="br-avatar mt-1" title="Fulano da Silva"><span className="w-25 h-10 content"><img src="https://picsum.photos/id/823/400" alt="Avatar" /></span></span> */}
                 <div className="ml-3">
                     <div className="text-weight-semi-bold text-up-02">Maria Amorim</div>
@@ -33,8 +36,8 @@ export const Card: React.FC<Props> = (props) => {
 
     const content = [
         <div className="card-content" >
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore perferendis nam porro atque ex at, numquam non optio ab eveniet error vel ad exercitationem, earum et fugiat recusandae harum? Assumenda. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore perferendis nam porro atque ex at, numquam non optio ab eveniet error vel ad exercitationem, earum et fugiat recusandae harum? Assumenda.</p>
-    </div>
+            <p>{ children }</p>
+        </div>
     ]
 
     const footer = [
@@ -58,7 +61,7 @@ export const Card: React.FC<Props> = (props) => {
     ]
 
     return (
-        <div className="col-sm-6 col-md-4 col-lg-5 ">
+        <div className="col-sm-6 col-md-4 col-lg-5">
             <div className={cn(classnames)} {...restOfProps}>
                 {header}
 
