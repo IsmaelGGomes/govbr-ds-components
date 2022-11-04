@@ -11,9 +11,6 @@ type Props = HTMLProps<HTMLElement> & {
 export const Avatar: FC<Props> = (props) => {
     const { variant, className, type, children, size, title, ...restOfProps } = props;
 
-    /* const Styles : CSSProperties {
-
-    } */
 
     const classnamesFirstSpan = [
         'br-avatar mr-3',

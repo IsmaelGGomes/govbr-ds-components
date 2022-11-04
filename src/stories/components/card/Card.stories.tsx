@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Card } from '../../../components/card/Card';
+import { Card } from '../../../components/card/';
 import { Wrapper } from '../../../Wrapper';
 
 export default {

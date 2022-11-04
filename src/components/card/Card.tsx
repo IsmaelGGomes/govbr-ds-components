@@ -64,7 +64,7 @@ export const Card: React.FC<Props> = (props) => {
         <div className="col-sm-6 col-md-4 col-lg-5">
             <div className={cn(classnames)} {...restOfProps}>
                 {header}
-
+        
                 {content}
 
                 {footer}

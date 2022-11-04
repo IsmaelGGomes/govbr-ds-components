@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar } from "../../../components/Avatar/Avatar";
+import { Avatar } from "../../../components/avatar/Avatar";
 import type { Story, ComponentMeta } from '@storybook/react';
 import { Wrapper } from '../../../Wrapper';
 

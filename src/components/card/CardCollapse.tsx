@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import type { FC, HTMLProps } from 'react';
+import { FC, HTMLProps, useState } from 'react';
 import React from 'react';
 import type { ThemeColorName } from '../../types/colors';
 import { cn } from '../../utils/classname';
@@ -7,21 +7,23 @@ import { cn } from '../../utils/classname';
 type Props = HTMLProps<HTMLButtonElement> & {
     disabled: boolean;
     fixed: string;
+    hidden: boolean;
 };
 
 export const CardCollapse: React.FC<Props> = (props) => {
-    const { className,fixed, ...restOfProps } = props;
+    const { className, fixed, hidden, ...restOfProps } = props;
+
+    const [localHidden, setLocalHidden] = useState(hidden);
+
+    const toggleHidden = () => {
+        setLocalHidden(!localHidden)
+    }
 
     const classnames = [
         'br-card',
         fixed == 'h-fixed' ? fixed: undefined,
         className,
     ];
-
-    
-    const classUpdate = [
-         
-    ]
 
     const header = [
         <div className="card-header">
@@ -48,10 +50,25 @@ export const CardCollapse: React.FC<Props> = (props) => {
     const footer = [
         <div className="card-footer">
             <div className="text-right">
-                <button className="br-button circle" type="button" aria-label="Expandir o card" data-toggle="collapse" data-target="expanded" aria-controls="expanded" aria-expanded="false" data-visible="false"><i className="fas fa-chevron-up" aria-hidden="true"></i>
+                <button 
+                    className="br-button circle"
+                    type="button" 
+                    aria-label="Expandir o card"
+                    data-toggle="collapse" 
+                    data-target="expanded" 
+                    aria-controls="expanded" 
+                    aria-expanded="false" 
+                    data-visible="false"
+                    onClick={toggleHidden}
+                >
+                    {localHidden ? (
+                        <i className="fas fa-chevron-down" aria-hidden="true"></i>
+                    ) : (
+                        <i className="fas fa-chevron-up" aria-hidden="true"></i>
+                    )}
                 </button>
             </div>
-            <div id="expanded" hidden={true}>
+            <div id="expanded" hidden={localHidden}>
                 <div className="br-list mt-3">
                     <div className="br-item">
                         <div className="row">
