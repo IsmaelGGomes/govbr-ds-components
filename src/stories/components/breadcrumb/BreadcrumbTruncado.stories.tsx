@@ -1,19 +1,19 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Breadcrumb } from '../../../components/breadcrumb/';
+import { BreadcrumbTruncado } from '../../../components/breadcrumb/';
 import { Wrapper } from '../../../Wrapper';
 
 export default {
-    title: 'Componentes/Breadcrumb/Geral',
-    component: Breadcrumb,
+    title: 'Componentes/Breadcrumb/Truncado',
+    component: BreadcrumbTruncado,
     argTypes: {
 
     },
-} as ComponentMeta<typeof Breadcrumb>;
+} as ComponentMeta<typeof BreadcrumbTruncado>;
 
-const Template: ComponentStory<typeof Breadcrumb> = (args) => (
+const Template: ComponentStory<typeof BreadcrumbTruncado> = (args) => (
     <Wrapper>
-        <Breadcrumb {...args} />
+        <BreadcrumbTruncado {...args} />
     </Wrapper>
 );
 
